@@ -23,24 +23,15 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    testCompile 'junit:junit:4.12'
-    compile group: 'com.squareup.okhttp3', name: 'okhttp-urlconnection', version: '3.3.0'
-    //适配器
+    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.3.0'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-    //RxJava
-    compile 'io.reactivex:rxjava:1.1.6'
-    //RxAndroid
-    compile 'io.reactivex:rxandroid:1.2.1'
-    //用来自定义的转换器（关键词：retrofit请求字符串，非json）
-    //compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     //simplexml
     compile('com.squareup.retrofit2:converter-simplexml:2.3.0') {
         exclude group: 'xpp3', module: 'xpp3'
         exclude group: 'stax', module: 'stax-api'
         exclude group: 'stax', module: 'stax'
     }
+    //gson
+    //compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 }

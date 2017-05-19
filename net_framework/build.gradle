@@ -28,11 +28,10 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.0.1'
-    //适配器
-    //RxJava
-    //RxAndroid
-    //用来自定义的转换器（关键词：retrofit请求字符串，非json）
-    //compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
     compile project(':ksoap2retrofit')
-    //compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    //RxJava
+    compile 'io.reactivex:rxjava:1.1.6'
+    //RxAndroid
+    compile 'io.reactivex:rxandroid:1.2.1'
 }
