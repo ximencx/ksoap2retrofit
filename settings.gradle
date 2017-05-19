@@ -1,0 +1,1 @@
+include ':app', ':net_framework', ':ksoap2retrofit'
