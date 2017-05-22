@@ -1,10 +1,12 @@
-package com.ximencx.ksoap2retrofit.convert;
+package com.ximencx.ksoap2retrofit_convertfactory.convertfactory;
 
 import android.util.Log;
 
+import com.ximencx.ksoap2retrofit.SoapUtil;
 import  com.ximencx.ksoap2retrofit.ksoap2.SoapEnvelope;
 import  com.ximencx.ksoap2retrofit.ksoap2.serialization.SoapObject;
-import  com.ximencx.ksoap2retrofit.ksoap2.transport.SoapHelper;
+import com.ximencx.ksoap2retrofit.ksoap2.serialization.SoapSerializationEnvelope;
+import com.ximencx.ksoap2retrofit.KSoap2RetrofitHelper;
 
 import org.simpleframework.xml.core.Persister;
 
@@ -23,22 +25,23 @@ import retrofit2.Converter;
  * 功能描述：
  * 修改：无
  */
-public final class SoapResponseBodyConverter<T> implements Converter<ResponseBody, T> {
-    private static final String TAG = "SoapResponseBodyConvert";
+public final class Soap2XmlResponseBodyConverter<T> implements Converter<ResponseBody, T> {
+
+    private String TAG = getClass().getSimpleName();
 
     private Class<?> clazz;
 
-    protected SoapResponseBodyConverter(Type clazz) {
+    protected Soap2XmlResponseBodyConverter(Type clazz) {
         this.clazz = (Class<?>) clazz;
     }
 
     @Override
     public T convert(ResponseBody value) throws IOException {
         //value 参考soap的返回，截取其中的字符串json
-        SoapEnvelope soapEnvelope = SoapHelper.getInstance().getSoapEnvelope();
-        SoapHelper.getInstance().parseResponse(soapEnvelope, value.byteStream());
+        SoapEnvelope soapEnvelope = new SoapSerializationEnvelope(KSoap2RetrofitHelper.getInstance().getEnvelopeversion());
+        SoapUtil.parseResponse(soapEnvelope, value.byteStream());
         SoapObject resultsRequestSOAP = (SoapObject) soapEnvelope.bodyIn;
-        Object obj = (Object) resultsRequestSOAP.getProperty(0);
+        Object obj = resultsRequestSOAP.getProperty(0);
         Log.e(TAG, "ResponseBodyToStringConverterFactory : " + obj.toString());
         try {
             //return adapter.fromJson(obj.toString());

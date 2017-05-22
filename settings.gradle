@@ -1,1 +1,1 @@
-include ':app', ':net_framework', ':ksoap2retrofit'
+include ':app', ':net_framework', ':ksoap2retrofit', ':ksoap2retrofit-convertfactory'

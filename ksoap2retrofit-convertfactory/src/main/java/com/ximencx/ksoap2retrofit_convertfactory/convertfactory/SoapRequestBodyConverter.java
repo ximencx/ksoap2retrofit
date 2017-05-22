@@ -1,4 +1,4 @@
-package com.ximencx.ksoap2retrofit.convert;
+package com.ximencx.ksoap2retrofit_convertfactory.convertfactory;
 
 import android.util.Log;
 
@@ -18,12 +18,13 @@ import retrofit2.Converter;
  * 修改：无
  */
 final class SoapRequestBodyConverter<T> implements Converter<T, RequestBody> {
-    private static final String TAG = "SoapRequestBodyConverte";
+
+    private String TAG = getClass().getSimpleName();
 
     private static final MediaType MEDIA_TYPE = MediaType.parse("text/plain; charset=UTF-8");
 
     @Override public RequestBody convert(T value) throws IOException {
-        Log.v(TAG,"RequestBody:"+(String)value);
+        Log.v(TAG,"RequestBody:"+value);
         return RequestBody.create(MEDIA_TYPE, (String)value);
     }
 }

@@ -1,6 +1,6 @@
-package com.ximencx.ksoap2retrofit;
+package com.expert.net_framework;
 
-import com.ximencx.ksoap2retrofit.convert.SoapConverterFactory;
+import com.ximencx.ksoap2retrofit_convertfactory.convertfactory.KSoap2XmlConverterFactory;
 
 import java.util.concurrent.TimeUnit;
 
@@ -25,7 +25,7 @@ public class RetrofitManager {
         //initRetrofit();
     }
 
-    public static RetrofitManager getInstance() {
+    protected static RetrofitManager getInstance() {
         if (mRetrofitManager == null) {
             synchronized (RetrofitManager.class) {
                 if (mRetrofitManager == null) {
@@ -43,7 +43,7 @@ public class RetrofitManager {
      * @param manager
      * @return
      */
-    public RetrofitManager init(ConfigManager manager) {
+    protected RetrofitManager init(ConfigManager manager) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
       /*  if (manager.DEBUG) {
             HttpLoggingInterceptor LoginInterceptor = new HttpLoggingInterceptor();
@@ -59,7 +59,7 @@ public class RetrofitManager {
 
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(manager.BASE_URL)
-                .addConverterFactory(SoapConverterFactory.create())
+                .addConverterFactory(KSoap2XmlConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(client)
                 .build();
@@ -73,7 +73,7 @@ public class RetrofitManager {
      * @param <T>
      * @return
      */
-    public <T> T createReq(Class<T> reqServer) {
+    protected <T> T createReq(Class<T> reqServer) {
         return mRetrofit.create(reqServer);
     }
 }

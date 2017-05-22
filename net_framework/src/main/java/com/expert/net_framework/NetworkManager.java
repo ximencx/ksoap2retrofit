@@ -3,12 +3,10 @@ package com.expert.net_framework;
 import com.expert.net_framework.api.Pams4Api;
 import com.expert.net_framework.bean.DownloadBaseDataBean;
 import com.expert.net_framework.bean.DownloadPlanDataBean;
-import com.ximencx.ksoap2retrofit.ConfigManager;
-import com.ximencx.ksoap2retrofit.RetrofitManager;
-import com.ximencx.ksoap2retrofit.ksoap2.transport.SoapHelper;
+import com.ximencx.ksoap2retrofit.Requestksoap;
+import com.ximencx.ksoap2retrofit.KSoap2RetrofitHelper;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -22,6 +20,7 @@ public class NetworkManager {
 
     private static NetworkManager networkManager;
     private final RetrofitManager manager;
+    private String TAG = getClass().getSimpleName();
 
     private NetworkManager() {
         ConfigManager configManager = new ConfigManager.Builder().setBASE_URL(ConstantManager.baseurl).build();
@@ -61,12 +60,12 @@ public class NetworkManager {
         properties.put("loginName", username);
         properties.put("password", pwd);
         properties.put("code", "");
-        List<Object> getParamters = SoapHelper.getInstance().getParams(ConstantManager.loginMethodName, ConstantManager.nameSpace, properties);
+        Requestksoap requestksoap = KSoap2RetrofitHelper.getInstance().convertRequest(ConstantManager.downloadBasicData, ConstantManager.nameSpace, properties);
         Map<String, String> soapHeaderMap = null;
         String mBody = null;
-        if (getParamters != null) {
-            soapHeaderMap = (Map<String, String>) getParamters.get(0);
-            mBody = new String((byte[]) getParamters.get(1));
+        if (requestksoap != null) {
+            soapHeaderMap = requestksoap.getMheaderMap();
+            mBody = new String(requestksoap.getRequestData());
         }
         return getPams4Api().downloadbasedata(soapHeaderMap, mBody);
     }
@@ -83,12 +82,12 @@ public class NetworkManager {
         properties.put("userName", username);
         properties.put("password", pwd);
         //properties.put("code", "");
-        List<Object> getParamters = SoapHelper.getInstance().getParams(ConstantManager.downloadPatrolPlan, ConstantManager.nameSpace, properties);
+        Requestksoap requestksoap = KSoap2RetrofitHelper.getInstance().convertRequest(ConstantManager.downloadPatrolPlan, ConstantManager.nameSpace, properties);
         Map<String, String> soapHeaderMap = null;
         String mBody = null;
-        if (getParamters != null) {
-            soapHeaderMap = (Map<String, String>) getParamters.get(0);
-            mBody = new String((byte[]) getParamters.get(1));
+        if (requestksoap != null) {
+            soapHeaderMap = requestksoap.getMheaderMap();
+            mBody = new String(requestksoap.getRequestData());
         }
         return getPams4Api().downloadplandata(soapHeaderMap, mBody);
     }

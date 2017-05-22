@@ -1,4 +1,4 @@
-package com.ximencx.ksoap2retrofit;
+package com.expert.net_framework;
 
 /**
  * author：wangkezhi
@@ -30,7 +30,7 @@ public class ConfigManager {
         Time_Out = time_Out;
     }
 
-    public static class Builder {
+    protected static class Builder {
         /**
          * baseurl
          */

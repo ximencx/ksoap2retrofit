@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/ksoap2retrofit/ksoap2retrofit.iml" filepath="$PROJECT_DIR$/ksoap2retrofit/ksoap2retrofit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ksoap2retrofit-convertfactory/ksoap2retrofit-convertfactory.iml" filepath="$PROJECT_DIR$/ksoap2retrofit-convertfactory/ksoap2retrofit-convertfactory.iml" />
       <module fileurl="file://$PROJECT_DIR$/net_framework/net_framework.iml" filepath="$PROJECT_DIR$/net_framework/net_framework.iml" />
       <module fileurl="file://$PROJECT_DIR$/newpams.iml" filepath="$PROJECT_DIR$/newpams.iml" />
     </modules>

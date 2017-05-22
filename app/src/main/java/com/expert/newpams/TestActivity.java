@@ -22,7 +22,7 @@ public class TestActivity extends AppCompatActivity {
 
     private void testapi() {
 
-        //initdownloadbasicdata();
+        initdownloadbasicdata();
         initdownloadplandata();
     }
 

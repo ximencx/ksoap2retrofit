@@ -28,10 +28,20 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.0.1'
-
     compile project(':ksoap2retrofit')
     //RxJava
+    compile project(':ksoap2retrofit-convertfactory')
     compile 'io.reactivex:rxjava:1.1.6'
-    //RxAndroid
     compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    //urk
+    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.8.0'
+    compile 'com.squareup.retrofit2:retrofit-converters:2.3.0'
+    compile('org.simpleframework:simple-xml:2.7.1') {
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+    }
+    compile 'com.google.code.gson:gson:2.8.0'
 }

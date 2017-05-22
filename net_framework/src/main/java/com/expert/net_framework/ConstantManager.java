@@ -9,12 +9,12 @@ package com.expert.net_framework;
 
 public class ConstantManager {
 
-    public static final String baseurl = "http://192.168.1.120:8080";
+    protected static final String baseurl = "http://192.168.1.120:8080";
 
-    public static final String loginMethodName = "downloadBasicData";
+    protected static final String downloadBasicData = "downloadBasicData";
 
-    public static final String downloadPatrolPlan = "downloadPatrolPlan";
+    protected static final String downloadPatrolPlan = "downloadPatrolPlan";
 
-    public static final String nameSpace = "http://service.patrol.etm.zzept.cn/";
+    protected static final String nameSpace = "http://service.patrol.etm.zzept.cn/";
 
 }

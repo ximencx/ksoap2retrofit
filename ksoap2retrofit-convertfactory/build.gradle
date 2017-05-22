@@ -23,12 +23,14 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    //provided 'com.squareup.okhttp3:okhttp-urlconnection:3.8.0'
-    //provided 'com.squareup.retrofit2:retrofit-converters:2.3.0'
     provided('org.simpleframework:simple-xml:2.7.1') {
         exclude group: 'xpp3', module: 'xpp3'
         exclude group: 'stax', module: 'stax-api'
         exclude group: 'stax', module: 'stax'
     }
     provided 'com.google.code.gson:gson:2.8.0'
+    provided 'com.squareup.retrofit2:retrofit:2.1.0'
+    provided project(':ksoap2retrofit')
+    //provided 'com.squareup.okhttp3:okhttp-urlconnection:3.8.0'
+    //provided 'com.squareup.retrofit2:retrofit-converters:2.3.0'
 }

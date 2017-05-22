@@ -1,4 +1,6 @@
-package com.ximencx.ksoap2retrofit.convert;
+package com.ximencx.ksoap2retrofit_convertfactory.convertfactory;
+
+
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
@@ -15,18 +17,17 @@ import retrofit2.Retrofit;
  * summary：自定义转换器
  */
 
-public class SoapConverterFactory<T> extends Converter.Factory {
-
-
-    public static SoapConverterFactory create() {
-        return new SoapConverterFactory();
+public class KSoap2JsonConverterFactory<T> extends Converter.Factory {
+    private String TAG = getClass().getSimpleName();
+    public static KSoap2JsonConverterFactory create() {
+        return new KSoap2JsonConverterFactory();
     }
 
 
     @Override
     public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations,
                                                             Retrofit retrofit) {
-        return new SoapResponseBodyConverter<Type>(type);
+        return new Soap2JsonResponseBodyConverter<Type>(type);
     }
 
 
