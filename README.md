@@ -1,12 +1,11 @@
 # ksoap2retrofit
-It is can help you use okhttp3 or retrofit accsse webservice.
-KSoap2RetrofitHelper can convert httprequest to ksoaprequest and convert ksoap result to normal data,don't include netframwork denpence. 
-KSoap2JsonConverterFactory can help you that convert ksoap result to json when you  use retrofit.
-KSoap2XmlConverterFactory can help you that convert ksoap result to simplexml when you  use retrofit.
-
+<br />It is can help you use okhttp3 or retrofit accsse webservice.
+<br />**KSoap2RetrofitHelper** can convert httprequest to ksoaprequest and convert ksoap result to normal data,don't include netframwork denpence. 
+<br />**KSoap2JsonConverterFactory** can help you that convert ksoap result to json when you  use retrofit.
+<br />**KSoap2XmlConverterFactory** can help you that convert ksoap result to simplexml when you  use retrofit.
 
 ## Base usage
-#### first,you need convert ksoap header ,nameSpace,method，key-value to normal header and request body.
+### First,you need convert ksoap header ,nameSpace,method，key-value to normal header and request body.
      /**
      * 转换ksoap请求头和请求体
      *
@@ -17,8 +16,8 @@ KSoap2XmlConverterFactory can help you that convert ksoap result to simplexml wh
      */
      Requestksoap requestksoap = KSoap2RetrofitHelper.getInstance().convertRequest(method, nameSpacre, key-value);
 	 
-#### secend，you need conver ksoap response to normal data.
-## when you don't use retrofit,the method can conver ksoap response to the String data response.
+### Secend，you need conver ksoap response to normal data.
+#### when you don't use retrofit,the method can conver ksoap response to the String data response.
 	 /**
      * 转换ksoap响应体
      *
@@ -29,9 +28,9 @@ KSoap2XmlConverterFactory can help you that convert ksoap result to simplexml wh
      String normalresponse=KSoap2RetrofitHelper.getInstance().convertRequest(ksoapresponse);
 	 
 #### 
-## when you use retrofit,you can use convertfactor tool.
-     KSoap2XmlConverterFactory is xml tool.
-	 KSoap2JsonConverterFactory is json tool.
+#### when you use retrofit,you can use convertfactor tool.
+     **KSoap2XmlConverterFactory** is xml tool.
+     **KSoap2JsonConverterFactory** is json tool.
 
 
 
