@@ -6,26 +6,30 @@
 
 ## 基本使用方法
 ### 第一步，转换ksoap方法名，命名空间，键值对 为请求头和请求体。
-     /**
-     * 转换ksoap请求头和请求体
-     *
-     * @param method     方法名
-     * @param nameSpacre 命名空间
-     * @param properties 键值对
-     * @return 转换后的请求头和请求体
-     */
-     Requestksoap requestksoap = KSoap2RetrofitHelper.getInstance().convertRequest(method, nameSpacre, key-value);
+```
+/**
+* 转换ksoap请求头和请求体
+*
+* @param method     方法名
+* @param nameSpacre 命名空间
+* @param properties 键值对
+* @return 转换后的请求头和请求体
+*/
+Requestksoap requestksoap = KSoap2RetrofitHelper.getInstance().convertRequest(method, nameSpacre, key-value);
+```
 	 
 ### 第二步，转换ksoap响应体 为包含的响应体。
 #### 如果没有使用retrofit，该方法可以将ksoap响应体转换为包含的响应体。
-	 /**
-     * 转换ksoap响应体
-     *
-     * @param value 响应体
-     * @return 转换后的响应体
-     * @throws IOException
-     */
-     String normalresponse=KSoap2RetrofitHelper.getInstance().convertRequest(ksoapresponse);
+```
+/**
+* 转换ksoap响应体
+*
+* @param value 响应体
+* @return 转换后的响应体
+* @throws IOException
+*/
+String normalresponse=KSoap2RetrofitHelper.getInstance().convertRequest(ksoapresponse);
+```
 	 
 #### 
 #### 如果使用retrofit，下面2个工具类可以将ksoap响应体解析为xml和json模型。
