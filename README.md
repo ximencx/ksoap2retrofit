@@ -1,12 +1,12 @@
-# ksoap2retrofit
-<br />It is can help you use okhttp3 or retrofit accsse webservice.
-<br />**KSoap2RetrofitHelper** can convert httprequest to ksoaprequest and convert ksoap result to normal data,don't include netframwork denpence. 
-<br />**KSoap2JsonConverterFactory** can help you that convert ksoap result to json when you  use retrofit.
-<br />**KSoap2XmlConverterFactory** can help you that convert ksoap result to simplexml when you  use retrofit.
+# ksoap2retrofit简介
+这是一个ksoap协议转换库。通过转换ksop协议请求头和请求体，从而直接使用okhttp或者retrofit访问Webservice，得到的响应头经过转换即可得到响应体。优点：避免使用ksoap框架及更好的生命周期处理，内存泄漏处理。
+<br/> **KSoap2RetrofitHelper** 包含请求头和请求体转换类，响应体转换类。不涉及网络部分，使用字符串转换。
+<br/> **KSoap2JsonConverterFactory** 如果使用retrofit，且响应体数据是json格式，用法和gson类似。
+<br/> **KSoap2XmlConverterFactory** 如果使用retrofit，且响应体数据是xml格式，用法和simplexm类似。
 
-## Base usage
-### First,you need convert ksoap header ,nameSpace,method，key-value to normal header and request body.
-     /**
+## 基本使用方法
+### 第一步，转换ksoap方法名，命名空间，键值对 为请求头和请求体。
+     /**
      * 转换ksoap请求头和请求体
      *
      * @param method     方法名
@@ -16,8 +16,8 @@
      */
      Requestksoap requestksoap = KSoap2RetrofitHelper.getInstance().convertRequest(method, nameSpacre, key-value);
 	 
-### Secend，you need conver ksoap response to normal data.
-#### when you don't use retrofit,the method can conver ksoap response to the String data response.
+### 第二步，转换ksoap响应体 为包含的响应体。
+#### 如果没有使用retrofit，该方法可以将ksoap响应体转换为包含的响应体。
 	 /**
      * 转换ksoap响应体
      *
@@ -28,9 +28,9 @@
      String normalresponse=KSoap2RetrofitHelper.getInstance().convertRequest(ksoapresponse);
 	 
 #### 
-#### when you use retrofit,you can use convertfactor tool.
-     **KSoap2XmlConverterFactory** is xml tool.
-     **KSoap2JsonConverterFactory** is json tool.
+#### 如果使用retrofit，下面2个工具类可以将ksoap响应体解析为xml和json模型。
+<br/> **KSoap2XmlConverterFactory** 为ksoap转xml转换类。
+<br/> **KSoap2JsonConverterFactory** 为ksoap转json转换类。
 
 
 
