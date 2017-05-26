@@ -20,7 +20,7 @@ Requestksoap requestksoap = KSoap2RetrofitHelper.getInstance().convertRequest(me
 	 
 ### 第二步，转换ksoap响应体 为包含的响应体。
 * 如果没有使用retrofit，该方法可以将ksoap响应体转换为包含的响应体。
-```
+```java
 /**
 * 转换ksoap响应体
 *
@@ -28,12 +28,14 @@ Requestksoap requestksoap = KSoap2RetrofitHelper.getInstance().convertRequest(me
 * @return 转换后的响应体
 * @throws IOException
 */
-String normalresponse=KSoap2RetrofitHelper.getInstance().convertRequest(ksoapresponse);
+String normalresponse=KSoap2RetrofitHelper.getInstance().convertResponse(ksoapresponse);
 ```	 
 #### 
 * 如果使用retrofit，下面2个工具类可以将ksoap响应体解析为xml和json模型。
+```java
 <br/> **KSoap2XmlConverterFactory** 为ksoap转xml转换类。
 <br/> **KSoap2JsonConverterFactory** 为ksoap转json转换类。
+```
 
 
 
