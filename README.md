@@ -32,10 +32,9 @@ String normalresponse=KSoap2RetrofitHelper.getInstance().convertResponse(ksoapre
 ```	 
 #### 
 * 如果使用retrofit，下面2个工具类可以将ksoap响应体解析为xml和json模型。
-```java
 <br/> **KSoap2XmlConverterFactory** 为ksoap转xml转换类。
 <br/> **KSoap2JsonConverterFactory** 为ksoap转json转换类。
-```
+
 
 
 
